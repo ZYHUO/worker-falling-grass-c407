@@ -1,0 +1,89 @@
+allow-lan: true
+port: 7890
+socks-port: 7891
+mode: Rule
+log-level: info
+external-controller: :9090
+
+dns:
+  enabled: true
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  fallback:
+    - 8.8.8.8
+    - 8.8.4.4
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+    
+proxies:
+ - {name: "leaseweb SG[Ucloud GZ]", type: ss, server: 106.75.138.250, port: 55095, cipher: aes-128-gcm, password: 5b9cb384-f73e-41e9-ae0c-87406755eb02, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "jp softbank[leikwan jp]", type: ss, server: v4-phase1.ctsh.leikwanhost.com, port: 30383, cipher: aes-128-gcm, password: 3dcd9e0c-1142-4422-9a74-eac140beb9c9, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "jp softbank[china Unicom]", type: ss, server: 163.177.45.1, port: 21957, cipher: aes-128-gcm, password: 3dcd9e0c-1142-4422-9a74-eac140beb9c9, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "jp softbank[china mobile]", type: ss, server: 120.232.162.63, port: 21957, cipher: aes-128-gcm, password: 3dcd9e0c-1142-4422-9a74-eac140beb9c9, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }  
+ - {"name":"tw hinet[Ucloud GZ]","type":"ss","server":"106.75.138.250","port":51468,"password":"35f5d513-f56b-4e54-9eca-b5a2a7611e89","cipher":"aes-128-gcm"}
+ - {name: "best JP[Ucloud GZ]", type: ss, server: 106.75.138.250, port: 50819, cipher: aes-128-gcm, password: 6aaef35d-81be-4dce-8844-f634bb7a66bc, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "best JP[leikwan jp]", type: ss, server: v4-phase1.ctsh.leikwanhost.com, port: 30382, cipher: aes-128-gcm, password: 6aaef35d-81be-4dce-8844-f634bb7a66bc, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "wawo HK[china mobile]", type: ss, server: 120.232.162.63, port: 22898, cipher: aes-128-gcm, password: c2b1e2d3-063c-4366-8cc9-41431619df6f, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "wawo HK[china Unicom]", type: ss, server: 163.177.45.1, port: 22898, cipher: aes-128-gcm, password: c2b1e2d3-063c-4366-8cc9-41431619df6f, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "flap HK[Unlock SG][china mobile]", type: ss, server: 120.232.162.63, port: 22017, cipher: aes-128-gcm, password: 0f1dd972-48b9-4974-9abc-32388babba3f, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "flap HK[Unlock SG][china Unicom]", type: ss, server: 163.177.45.1, port: 22017, cipher: aes-128-gcm, password: 0f1dd972-48b9-4974-9abc-32388babba3f, smux: { enabled: true, protocol: 'h2mux', padding: true, max-connections: '8', min-streams: '16', statistic: true, only-tcp: false }, brutal-opts: { enabled: false, up: '1000 Mbps', down: '1000 Mbps' } }
+ - {name: "cera with ceranetworks", type: anytls, server: 23.224.132.222, port: 8881, password: 56069a2b-d812-4a47-9209-58c7ffe3e6d3, client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, skip-cert-verify: true }
+ - {name: "lime hk[Ucloud GZ]", type: anytls, server: 106.75.138.250, port: 64854, password: c22d4602-9c9a-4f14-b0bc-57d3ed438001, client-fingerprint: chrome, udp: true, idle-session-check-interval: 30, idle-session-timeout: 30, skip-cert-verify: true }
+ - { name: 'NG without', type: trojan, server: 1ab9008c.sched.sma-dk.ali-oss.cn, port: 12073, password: 69b6c279-9c0d-4b81-b404-a23dbecb5a57, udp: true, sni: cdn.alibaba.com, skip-cert-verify: true }
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - HK
+      - TW
+      - JP
+      - SG
+      - MO
+      - US
+      - NG
+  - name: HK
+    type: select
+    proxies:
+      - lime hk[Ucloud GZ]
+  - name: JP
+    type: select
+    proxies:
+      - best JP[Ucloud GZ]
+      - best JP[leikwan jp]
+      - jp softbank[china Unicom]
+      - jp softbank[china mobile]
+      - jp softbank[leikwan jp]
+  - name: US
+    type: select
+    proxies:
+      - cera with ceranetworks
+  - name: SG
+    type: select
+    proxies:
+      - flap HK[Unlock SG][china Unicom]
+      - flap HK[Unlock SG][china mobile]
+      - leaseweb SG[Ucloud GZ]
+      
+  - name: NG
+    type: select
+    proxies:
+      - NG without
+  - name: MO
+    type: select
+    proxies:
+      - wawo HK[china mobile]
+      - wawo HK[china Unicom]
+  - name: TW
+    type: select
+    proxies:
+      - tw hinet[Ucloud GZ]
+
+
+rules:
+  - DOMAIN,ipinfo.io,Proxy
+  - DOMAIN-SUFFIX,google.com,Proxy
+  - DOMAIN-KEYWORD,youtube,Proxy
+  - IP-CIDR,8.8.8.8/32,Proxy
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
